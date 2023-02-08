@@ -16,7 +16,6 @@ public class jugador : MonoBehaviour
 
     public GameObject Jugador; //El objeto jugador
 
-    public GameObject casa; //El prefabricado llamado casa
     float tiempo; //Variable que nos ayudara a destruir el objetoi casa
    
     void Start()
@@ -40,19 +39,13 @@ public class jugador : MonoBehaviour
         camara.transform.position = new Vector3(transform.position.x, 1, -11);
 
         // Si se ha presionado el botón de salto, ejecuta la función de salto
-        animator.SetTrigger("Caminando"); //Activamos la animacion de caminar
+        animator.SetTrigger("Corriendo"); //Activamos la animacion de caminar
         if (Input.GetKeyDown(KeyCode.Space) && EnElPiso == true)
         {
             Salto();
             animator.SetTrigger("Salto"); //Activamos la animacion de salto
         }
 
-        //Destruimos el objeto casa, solo es mera estetica esta parte del codigo
-        tiempo += Time.deltaTime;
-        if (tiempo > 5)
-        {
-            Destroy(casa);
-        }
     }
 
     /*
